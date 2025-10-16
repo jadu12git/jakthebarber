@@ -407,6 +407,50 @@
             .booking-form {
                 padding: 25px;
             }
+            .service-card.coming-soon {
+                position: relative;
+                opacity: 0.7;
+                filter: grayscale(50%);
+            }
+
+            .service-card.coming-soon::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+                border-radius: 15px;
+            }
+
+            .coming-soon-badge {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(-15deg);
+                background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 5px;
+                font-weight: bold;
+                font-size: 1.2rem;
+                z-index: 20;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+            
+            .service-card.coming-soon .btn {
+                background: #6c757d;
+                cursor: not-allowed;
+            }
+            
+            .service-card.coming-soon .btn:hover {
+                transform: none;
+                background: #6c757d;
+            }
+
         }
     </style>
 </head>
@@ -499,7 +543,7 @@
                     </div>
                     <div class="service-content">
                         <h3>Executive Grooming</h3>
-                        <div class="service-price">$85</div>
+                        <div class="service-price">$30</div>
                         <p class="service-description">Luxury service with personalized attention and exclusive treatments.</p>
                         
                         <a href="#booking" class="btn">Book This Service</a>
@@ -507,7 +551,8 @@
                 </div>
                 
                 <!-- Luxury Tier -->
-                <div class="service-card luxury">
+                <div class="service-card coming-soon">
+                    <div class="coming-soon-badge">Coming Soon</div>
                     <div>
                         <span class="service-tier tier-luxury">Luxury</span>
                     </div>
@@ -516,7 +561,7 @@
                         <div class="service-price">$50</div>
                         <p class="service-description">The ultimate grooming experience with exclusive benefits and personal attention.</p>
                        
-                        <a href="#booking" class="btn">Book VIP Experience</a>
+                        <a href="javascript:void(0)" class="btn">Notify When Available</a>
                     </div>
                 </div>
             </div>
