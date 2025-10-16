@@ -1,465 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>JAK THE BARBER | Book Your Appointment</title>
     <style>
-        :root {
-            --primary: #4a6fa5;
-            --secondary: #6b8cbc;
-            --accent: #ff7e5f;
-            --light: #f8f9fa;
-            --dark: #343a40;
-            --success: #28a745;
+        :root{
+            --primary:#4a6fa5;
+            --secondary:#6b8cbc;
+            --accent:#ff7e5f;
+            --light:#f8f9fa;
+            --dark:#343a40;
+            --success:#28a745;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f5f5;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-        
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        .hero {
-            position: relative;
-            height: 70vh;
-            overflow: hidden;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        
-        .hero-slides {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-        }
-        
-        .slide.active {
-            opacity: 1;
-        }
-        
-        .slide-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 0 20px;
-        }
-        
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin: 0 auto 30px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background-color: #ff6b4a;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .section-title h2 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        .section-title p {
-            color: #00D632;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .services {
-            background-color: white;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
-            background-color: var(--light);
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            transition: transform 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .service-icon {
-            font-size: 2.5rem;
-            color: #00D632;
-            margin-bottom: 20px;
-        }
-        
-        .service-card h3 {
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-        
-        .booking {
-            background-color: var(--light);
-        }
-        
-        .booking-form {
-            background-color: white;
-            border-radius: 10px;
-            padding: 40px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        
-        input, select, textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border 0.3s;
-        }
-        
-        input:focus, select:focus, textarea:focus {
-            border-color: var(--primary);
-            outline: none;
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        
-        .payment-info {
-            background-color: #f0f8ff;
-            border-radius: 10px;
-            padding: 25px;
-            margin-top: 30px;
-            border-left: 4px solid var(--primary);
-        }
-        
-        .payment-info h3 {
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        
-        .payment-info p {
-            margin-bottom: 15px;
-        }
-        
-        .cashapp-link {
-            display: inline-block;
-            background-color: #00D632;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 10px;
-        }
-        
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 50px 0 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: var(--light);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #adb5bd;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #495057;
-            color: #adb5bd;
-            font-size: 0.9rem;
-        }
-        
-        .confirmation {
-            display: none;
-            text-align: center;
-            padding: 40px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .confirmation-icon {
-            font-size: 4rem;
-            color: var(--success);
-            margin-bottom: 20px;
-        }
-        
-        .slide-indicators {
-            position: absolute;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            z-index: 3;
-        }
-        
-        .indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.5);
-            margin: 0 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .indicator.active {
-            background-color: white;
-        }
-        
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                padding: 15px 0;
-            }
-            
-            .nav-links {
-                margin-top: 15px;
-            }
-            
-            .nav-links li {
-                margin-left: 15px;
-                margin-right: 15px;
-            }
-            
-            .hero {
-                height: 60vh;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            section {
-                padding: 60px 0;
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .booking-form {
-                padding: 25px;
-            }
-            .service-card.coming-soon {
-                position: relative;
-                opacity: 0.7;
-                filter: grayscale(50%);
-            }
 
-            .service-card.coming-soon::after {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
-                border-radius: 15px;
-            }
+        *{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
 
-            .coming-soon-badge {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%) rotate(-15deg);
-                background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-                color: white;
-                padding: 15px 25px;
-                border-radius: 5px;
-                font-weight: bold;
-                font-size: 1.2rem;
-                z-index: 20;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-                text-transform: uppercase;
-                letter-spacing: 2px;
-            }
-            
-            .service-card.coming-soon .btn {
-                background: #6c757d;
-                cursor: not-allowed;
-            }
-            
-            .service-card.coming-soon .btn:hover {
-                transform: none;
-                background: #6c757d;
-            }
+        body{
+            background:#f5f5f5;
+            color:var(--dark);
+            line-height:1.6;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            scroll-behavior:smooth;
+        }
 
+        header{
+            background:#fff;
+            box-shadow:0 2px 10px rgba(0,0,0,0.08);
+            position:sticky;top:0;z-index:200;
+        }
+
+        .container{width:90%;max-width:1200px;margin:0 auto;padding:0 15px;}
+
+        .navbar{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:12px;}
+        .logo{font-size:1.8rem;font-weight:700;color:var(--primary);letter-spacing:0.5px;}
+        .menu-toggle{display:none;font-size:1.6rem;background:none;border:none;cursor:pointer}
+
+        .nav-links{display:flex;list-style:none;gap:28px;align-items:center;}
+        .nav-links a{text-decoration:none;color:var(--dark);font-weight:500;transition:color .18s}
+        .nav-links a:hover{color:var(--primary)}
+
+        .hero{position:relative;height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden;}
+        .hero-slides{position:absolute;inset:0;width:100%;height:100%;}
+        .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease-in-out;}
+        .slide.active{opacity:1}
+        .slide-overlay{position:absolute;inset:0;background:rgba(0,0,0,.45)}
+        .hero-content{position:relative;z-index:2;max-width:800px;padding:0 20px;opacity:0;transform:translateY(8px);animation:fadeUp .7s ease forwards .15s}
+        @keyframes fadeUp{to{opacity:1;transform:none}}
+
+        .hero h1{font-size:2.6rem;margin-bottom:16px;text-shadow:2px 2px 6px rgba(0,0,0,.45)}
+        .hero p{font-size:1.15rem;margin-bottom:22px;text-shadow:1px 1px 4px rgba(0,0,0,.4)}
+
+        .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 26px;border-radius:999px;text-decoration:none;font-weight:600;border:none;cursor:pointer;transition:transform .18s,box-shadow .18s,background .18s}
+        .btn:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.18);background:#ff6b4a}
+
+        section{padding:80px 0}
+        .section-title{text-align:center;margin-bottom:40px}
+        .section-title h2{font-size:2rem;color:var(--primary);margin-bottom:10px}
+        .section-title p{color:#2b8c3a;max-width:680px;margin:0 auto}
+
+        .services{background:#fff}
+        .services-grid{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+        .service-card{background:var(--light);border-radius:12px;padding:26px;text-align:center;box-shadow:0 8px 20px rgba(0,0,0,0.04);transition:transform .22s}
+        .service-card:hover{transform:translateY(-8px)}
+        .service-price{font-weight:700;margin:8px 0;color:var(--dark)}
+        .service-description{color:#4d4d4d;margin-bottom:14px}
+
+        /* Coming soon card styling (applies to all sizes) */
+        .service-card.coming-soon{position:relative;opacity:.8;filter:grayscale(.25)}
+        .service-card.coming-soon::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,0.06),rgba(0,0,0,0.12));border-radius:12px;pointer-events:none}
+        .coming-soon-badge{position:absolute;top:16%;right:-18px;transform:rotate(-12deg);background:linear-gradient(45deg,#ff6b6b,#ee5a24);color:#fff;padding:10px 20px;border-radius:6px;font-weight:700;letter-spacing:1px;box-shadow:0 8px 18px rgba(0,0,0,.18)}
+
+        .booking{background:var(--light)}
+        .booking-form{background:#fff;border-radius:10px;padding:40px;box-shadow:0 8px 30px rgba(0,0,0,.08);max-width:880px;margin:0 auto}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+        .form-group{margin-bottom:18px}
+        label{display:block;margin-bottom:8px;font-weight:600}
+        input,select,textarea{width:100%;padding:12px 14px;border-radius:8px;border:1px solid #e0e0e0;font-size:1rem;transition:border-color .14s}
+        input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 6px 18px rgba(74,111,165,.06)}
+
+        .payment-info{background:#f0f8ff;border-left:4px solid var(--primary);padding:18px;border-radius:8px;margin-top:20px}
+        .payment-info h3{color:var(--primary);margin-bottom:8px}
+        .payment-info p{color:#333;margin-bottom:8px}
+
+        .cashapp-link{display:inline-block;background:#00D632;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:700}
+
+        footer{background:var(--dark);color:#fff;padding:48px 0 28px}
+        .footer-content{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-bottom:20px}
+        .footer-column h3{margin-bottom:12px;color:var(--light)}
+        .footer-links{list-style:none}
+        .footer-links li{margin-bottom:10px;color:#cfd8dc}
+        .footer-links a{color:#cfd8dc;text-decoration:none}
+        .footer-links a:hover{color:#fff}
+        .copyright{border-top:1px solid #495057;padding-top:18px;text-align:center;color:#adb5bd;font-size:.92rem}
+
+        .confirmation{display:none;background:#fff;border-radius:10px;padding:36px;box-shadow:0 8px 30px rgba(0,0,0,.08);max-width:680px;margin:0 auto;text-align:center}
+        .confirmation-icon{font-size:3.6rem;color:var(--success);margin-bottom:10px}
+        .indicator-container{position:absolute;bottom:18px;left:0;right:0;display:flex;justify-content:center;gap:8px;z-index:50}
+        .indicator{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:background .12s}
+        .indicator.active{background:#fff}
+
+        /* small utilities */
+        .muted{color:#6c757d}
+        .text-center{text-align:center}
+
+        @media (max-width:992px){
+            .hero h1{font-size:2.2rem}
+            .hero p{font-size:1rem}
+        }
+
+        @media (max-width:768px){
+            .menu-toggle{display:block}
+            .nav-links{display:none;flex-direction:column;background:#fff;width:100%;padding:12px;border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,.06)}
+            .nav-links.show{display:flex}
+            .nav-links li{margin:8px 0}
+            .navbar{gap:8px}
+            .hero{height:58vh}
+            section{padding:56px 0}
+            .form-row{grid-template-columns:1fr}
+            .booking-form{padding:22px}
+            .coming-soon-badge{top:12%;right:6px;transform:rotate(-18deg);font-size:.95rem}
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <nav class="navbar">
+            <nav class="navbar" aria-label="Main navigation">
                 <div class="logo">JAK THE BARBER</div>
-                <ul class="nav-links">
+
+                <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Toggle menu">☰</button>
+
+                <ul class="nav-links" id="mainNav">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#booking">Book Now</a></li>
@@ -469,224 +142,220 @@
         </div>
     </header>
 
-    <section class="hero" id="home">
-        <div class="hero-slides">
-            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80');">
-                <div class="slide-overlay"></div>
+    <main>
+        <section class="hero" id="home" aria-label="Hero">
+            <div class="hero-slides" aria-hidden="true">
+                <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=60');">
+                    <div class="slide-overlay"></div>
+                </div>
+                <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1600&q=60');">
+                    <div class="slide-overlay"></div>
+                </div>
+                <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1600&q=60');">
+                    <div class="slide-overlay"></div>
+                </div>
+                <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1621607512214-68297480165e?auto=format&fit=crop&w=1600&q=60');">
+                    <div class="slide-overlay"></div>
+                </div>
             </div>
-            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80');">
-                <div class="slide-overlay"></div>
-            </div>
-            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80');">
-                <div class="slide-overlay"></div>
-            </div>
-            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1621607512214-68297480165e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                <div class="slide-overlay"></div>
-            </div>
-        </div>
-        
-        <div class="slide-indicators">
-            <div class="indicator active" data-index="0"></div>
-            <div class="indicator" data-index="1"></div>
-            <div class="indicator" data-index="2"></div>
-            <div class="indicator" data-index="3"></div>
-        </div>
-        
-        <div class="container">
-            <div class="hero-content">
-                <h1>Professional Haircuts & Styling</h1>
-                <p>Book your appointment online and get the perfect look you deserve. Quick, easy, and convenient.</p>
-                <a href="#booking" class="btn">Book Appointment</a>
-            </div>
-        </div>
-    </section>
 
-<section class="services" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Premium Hair Services</h2>
-                <p>Experience luxury grooming with our tiered service levels. Each tier offers exclusive benefits and personalized attention.</p>
+            <div class="indicator-container" aria-hidden="true">
+                <div class="indicator active" data-index="0" tabindex="0"></div>
+                <div class="indicator" data-index="1" tabindex="0"></div>
+                <div class="indicator" data-index="2" tabindex="0"></div>
+                <div class="indicator" data-index="3" tabindex="0"></div>
             </div>
-            <div class="services-grid">
-                <!-- Basic Tier -->
-                <div class="service-card">
-                    <div>
-                        <span class="service-tier tier-basic">Essential</span>
-                    </div>
-                    <div class="service-content">
-                        <h3>Classic Lineup/ Beard Trim Only</h3>
-                        <div class="service-price">$15</div>
-                        <p class="service-description">A precision lineup for a clean, professional look.</p>
-                        
-                        <a href="#booking" class="btn">Book This Service</a>
-                    </div>
-                </div>
-                
-                <!-- Standard Tier -->
-                <div class="service-card">
-                    <div>
-                        <span class="service-tier tier-standard">Standard</span>
-                    </div>
-                    <div class="service-content">
-                        <h3>Signature Style</h3>
-                        <div class="service-price">$20</div>
-                        <p class="service-description">Most popular service including advanced techniques and premium products.</p>
-                        
-                        <a href="#booking" class="btn">Book This Service</a>
-                    </div>
-                </div>
-                
-                <!-- Premium Tier -->
-                <div class="service-card premium">
-                    <div>
-                        <span class="service-tier tier-premium">Premium</span>
-                    </div>
-                    <div class="service-content">
-                        <h3>Executive Grooming</h3>
-                        <div class="service-price">$30</div>
-                        <p class="service-description">Luxury service with personalized attention and exclusive treatments.</p>
-                        
-                        <a href="#booking" class="btn">Book This Service</a>
-                    </div>
-                </div>
-                
-                <!-- Luxury Tier -->
-                <div class="service-card coming-soon">
-                    <div class="coming-soon-badge">Coming Soon</div>
-                    <div>
-                        <span class="service-tier tier-luxury">Luxury</span>
-                    </div>
-                    <div class="service-content">
-                        <h3>VIP Experience</h3>
-                        <div class="service-price">$50</div>
-                        <p class="service-description">The ultimate grooming experience with exclusive benefits and personal attention.</p>
-                       
-                        <a href="javascript:void(0)" class="btn">Notify When Available</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Professional Haircuts & Styling</h1>
+                    <p>Book your appointment online and get the look you deserve. Quick, easy, and convenient.</p>
+                    <a class="btn" href="#booking">Book Appointment</a>
+                </div>
+            </div>
+        </section>
 
-    <section class="booking" id="booking">
-        <div class="container">
-            <div class="section-title">
-                <h2>Book Your Appointment</h2>
-                <p>Fill out the form below to schedule your haircut appointment.</p>
+        <section class="services" id="services" aria-labelledby="servicesTitle">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="servicesTitle">Premium Hair Services</h2>
+                    <p>Experience luxury grooming with tiered service levels. Each tier offers personalized attention and premium products.</p>
+                </div>
+
+                <div class="services-grid" role="list">
+                    <!-- Basic Tier -->
+                    <article class="service-card" role="listitem">
+                        <div><span class="muted">Essential</span></div>
+                        <div class="service-content">
+                            <h3>Classic Lineup / Beard Trim Only</h3>
+                            <div class="service-price">$15</div>
+                            <p class="service-description">A precision lineup for a clean, professional look.</p>
+                            <a class="btn" href="#booking" role="button">Book This Service</a>
+                        </div>
+                    </article>
+
+                    <!-- Standard Tier -->
+                    <article class="service-card" role="listitem">
+                        <div><span class="muted">Standard</span></div>
+                        <div class="service-content">
+                            <h3>Signature Style</h3>
+                            <div class="service-price">$20</div>
+                            <p class="service-description">Our most popular service — advanced techniques and premium products included.</p>
+                            <a class="btn" href="#booking" role="button">Book This Service</a>
+                        </div>
+                    </article>
+
+                    <!-- Premium Tier -->
+                    <article class="service-card" role="listitem">
+                        <div><span class="muted">Premium</span></div>
+                        <div class="service-content">
+                            <h3>Executive Grooming</h3>
+                            <div class="service-price">$30</div>
+                            <p class="service-description">Luxury service with personalized attention and exclusive treatments.</p>
+                            <a class="btn" href="#booking" role="button">Book This Service</a>
+                        </div>
+                    </article>
+
+                    <!-- Luxury Tier (coming soon) -->
+                    <article class="service-card coming-soon" role="listitem" aria-hidden="false">
+                        <div class="coming-soon-badge">Coming Soon</div>
+                        <div><span class="muted">Luxury</span></div>
+                        <div class="service-content">
+                            <h3>VIP Experience</h3>
+                            <div class="service-price">$50</div>
+                            <p class="service-description">The ultimate grooming experience with exclusive benefits and personal attention.</p>
+                            <a class="btn" href="javascript:void(0)" aria-disabled="true">Notify When Available</a>
+                        </div>
+                    </article>
+                </div>
             </div>
-            
-            <div class="booking-form" id="bookingForm">
-                <form id="appointmentForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" name="firstName" required>
+        </section>
+
+        <section class="booking" id="booking" aria-labelledby="bookingTitle">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="bookingTitle">Book Your Appointment</h2>
+                    <p>Fill out the form below to schedule your haircut appointment.</p>
+                </div>
+
+                <div class="booking-form" id="bookingForm">
+                    <form id="appointmentForm" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First name</label>
+                                <input id="firstName" name="firstName" type="text" required autocomplete="given-name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last name</label>
+                                <input id="lastName" name="lastName" type="text" required autocomplete="family-name" />
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name</label>
-                            <input type="text" id="lastName" name="lastName" required>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input id="email" name="email" type="email" required autocomplete="email" />
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone number</label>
+                                <input id="phone" name="phone" type="tel" required autocomplete="tel" />
+                            </div>
                         </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="service">Select service</label>
+                                <select id="service" name="service" required>
+                                    <option value="">Choose a service</option>
+                                    <option value="men-haircut">Classic Lineup / Beard Trim Only - $15</option>
+                                    <option value="women-haircut">Standard - $20</option>
+                                    <option value="beard-trim">Executive Grooming - $30</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Preferred date</label>
+                                <input id="date" name="date" type="date" required />
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="time">Preferred time</label>
+                                <select id="time" name="time" required>
+                                    <option value="">Select a time</option>
+                                    <option>9:00 AM</option>
+                                    <option>10:00 AM</option>
+                                    <option>11:00 AM</option>
+                                    <option>12:00 PM</option>
+                                    <option>1:00 PM</option>
+                                    <option>2:00 PM</option>
+                                    <option>3:00 PM</option>
+                                    <option>4:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notes">Special requests or notes</label>
+                            <textarea id="notes" name="notes" rows="4" placeholder="Any extra details (e.g., style reference)"></textarea>
+                        </div>
+
+                        <div class="payment-info" aria-live="polite">
+                            <h3>Payment instructions</h3>
+                            <p>After booking, please complete payment through Cash App using the button below. Your appointment will be confirmed after payment is received. Other bank transfers are also accepted in person at your appointment time.</p>
+
+                            <!-- Primary payment link shown before and after booking.
+                                 Note: the href updated dynamically to include amount (example: https://cash.app/$josephaduk/15).
+                                 If you prefer not to include the amount in the URL, the code still updates button text only. -->
+                            <a id="cashAppLink" class="cashapp-link" href="https://cash.app/$josephaduk" target="_blank" rel="noopener">Pay with Cash App</a>
+                        </div>
+
+                        <button type="submit" class="btn" style="width:100%;margin-top:18px">Book Appointment</button>
+                    </form>
+                </div>
+
+                <div class="confirmation" id="confirmation" aria-hidden="true">
+                    <div class="confirmation-icon">✓</div>
+                    <h2>Appointment request submitted!</h2>
+                    <p>Thank you — we've received your appointment request and will contact you shortly to confirm.</p>
+                    <p>Please remember to complete payment through Cash App to secure your appointment. Other bank transfers are accepted at the appointment if preferred.</p>
+                    <a id="cashAppLinkConfirm" class="cashapp-link" href="https://cash.app/$josephaduk" target="_blank" rel="noopener">Pay with Cash App</a>
+                    <div style="margin-top:18px">
+                        <button id="returnHome" class="btn" style="margin-top:14px">Return to Home</button>
                     </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="service">Select Service</label>
-                            <select id="service" name="service" required>
-                                <option value="">Choose a service</option>
-                                <option value="men-haircut">Classic Lineup/ Beard Trim Only - $15</option>
-                                <option value="women-haircut">Standard - $20</option>
-                                <option value="beard-trim">Executive Grooming - $30</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="date">Preferred Date</label>
-                            <input type="date" id="date" name="date" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="time">Preferred Time</label>
-                            <select id="time" name="time" required>
-                                <option value="">Select a time</option>
-                                <option value="9:00 AM">9:00 AM</option>
-                                <option value="10:00 AM">10:00 AM</option>
-                                <option value="11:00 AM">11:00 AM</option>
-                                <option value="12:00 PM">12:00 PM</option>
-                                <option value="1:00 PM">1:00 PM</option>
-                                <option value="2:00 PM">2:00 PM</option>
-                                <option value="3:00 PM">3:00 PM</option>
-                                <option value="4:00 PM">4:00 PM</option>
-                            </select>
-                        </div>
-                       
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="notes">Special Requests or Notes</label>
-                        <textarea id="notes" name="notes" rows="4"></textarea>
-                    </div>
-                    
-                    <div class="payment-info">
-                        <h3>Payment Instructions</h3>
-                        <p>After booking your appointment, please make payment through Cash App using the link below. Your appointment will be confirmed once payment is received. I accept other bank transfers too on your appointment time</p>
-                        <a href="https://cash.app/$josephaduk" class="cashapp-link" id="cashAppLink">Pay with Cash App</a>
-                        
-                    </div>
-                    
-                    <button type="submit" class="btn" style="width: 100%; margin-top: 20px;">Book Appointment</button>
-                </form>
+                </div>
             </div>
-            
-            <div class="confirmation" id="confirmation">
-                <div class="confirmation-icon">✓</div>
-                <h2>Appointment Request Submitted!</h2>
-                <p>Thank you for booking with us. We've received your appointment request and will contact you shortly to confirm.</p>
-                <p>Please remember to complete your payment through Cash App to secure your appointment. I accept other bank transfers too on your appointment time</p>
-                <a href="https://cash.app/$josephaduk" class="cashapp-link" id="cashAppLink">Pay with Cash App</a>
-                <a href="#" class="btn" style="margin-top: 20px;">Return to Home</a>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer id="contact">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>JAK THE BARBER</h3>
-                    <p>Providing quality haircuts and styling services with attention to detail and customer satisfaction.</p>
+                    <p>Quality haircuts and styling services delivered with attention to detail and customer satisfaction.</p>
                 </div>
+
                 <div class="footer-column">
-                    <h3>Contact Info</h3>
+                    <h3>Contact</h3>
                     <ul class="footer-links">
-                        <li>📞 (805) 259-5294</li>
-                        <li>✉️ 7mcutz@gmail.com</li>
+                        <li>📞 <a href="tel:+18052595294">(805) 259-5294</a></li>
+                        <li>✉️ <a href="mailto:7mcutz@gmail.com">7mcutz@gmail.com</a></li>
                         <li>📍 Grambling, LA</li>
-                        <li><a href="https://www.instagram.com/jak_thebarber?igsh=MTJiaXE2c29zd3psdQ%3D%3D&utm_source=qr"></a> IG: jak_thebarber</li>
-                        <li><a href="https://www.tiktok.com/@jakthebarber?_t=ZP-90aXLcbNhmw&_r=1"></a> Tiktok: jakthebarber</li>
+                        <li><a href="https://www.instagram.com/jak_thebarber" target="_blank" rel="noopener">Instagram: @jak_thebarber</a></li>
+                        <li><a href="https://www.tiktok.com/@jakthebarber" target="_blank" rel="noopener">TikTok: @jakthebarber</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-column">
-                    <h3>Business Hours</h3>
+                    <h3>Business hours</h3>
                     <ul class="footer-links">
-                        <li>No Stable Business Hours</li>
-                        <li>Availability changes every week</li>
-        
+                        <li>No stable business hours</li>
+                        <li>Availability changes weekly — contact to confirm</li>
                     </ul>
                 </div>
             </div>
+
             <div class="copyright">
                 <p>&copy; 2025 JAK THE BARBER. All rights reserved.</p>
             </div>
@@ -694,94 +363,189 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set minimum date to today
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('date').min = today;
-            
-            // Form submission
-            document.getElementById('appointmentForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // In a real application, you would send this data to a server
-                // For this demo, we'll just show the confirmation
-                document.getElementById('bookingForm').style.display = 'none';
-                document.getElementById('confirmation').style.display = 'block';
-                
-                // Scroll to confirmation
-                document.getElementById('confirmation').scrollIntoView({ behavior: 'smooth' });
-            });
-            
-            // Update Cash App link based on service selection
-            document.getElementById('service').addEventListener('change', function() {
-                const service = this.value;
-                let amount = '';
-                
-                switch(service) {
-                    case 'men-haircut': amount = '25'; break;
-                    case 'women-haircut': amount = '35'; break;
-                    case 'beard-trim': amount = '15'; break;
-                    case 'hair-styling': amount = '30'; break;
-                    default: amount = '';
-                }
-                
-                // In a real implementation, you would use your actual Cash App link
-                // This is just a placeholder to show how it would work
-                if(amount) {
-                    document.getElementById('cashAppLink').textContent = `Pay $${amount} with Cash App`;
-                    // In reality, you would set the href to your Cash App payment link
-                    // document.getElementById('cashAppLink').href = `https://cash.app/$yourusername/${amount}`;
-                }
-            });
-            
-            // Image slider functionality
-            const slides = document.querySelectorAll('.slide');
-            const indicators = document.querySelectorAll('.indicator');
+        (function () {
+            // Basic DOM references
+            const dateEl = document.getElementById('date');
+            const appointmentForm = document.getElementById('appointmentForm');
+            const bookingFormWrap = document.getElementById('bookingForm');
+            const confirmation = document.getElementById('confirmation');
+            const serviceSelect = document.getElementById('service');
+            const cashAppLink = document.getElementById('cashAppLink');
+            const cashAppLinkConfirm = document.getElementById('cashAppLinkConfirm');
+            const returnHomeBtn = document.getElementById('returnHome');
+            const menuToggle = document.getElementById('menuToggle');
+            const mainNav = document.getElementById('mainNav');
+
+            // Set minimum date to today (if date input exists)
+            if (dateEl) {
+                const today = new Date().toISOString().split('T')[0];
+                dateEl.min = today;
+            }
+
+            // Mobile menu toggle
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', function () {
+                    const isShown = mainNav.classList.toggle('show');
+                    menuToggle.setAttribute('aria-expanded', isShown ? 'true' : 'false');
+                });
+            }
+
+            // Map select values to displayed prices (match what's shown in the UI)
+            const priceMap = {
+                'men-haircut': '15',
+                'women-haircut': '20',
+                'beard-trim': '30'
+            };
+
+            // Update Cash App button text and href when service changes
+            if (serviceSelect) {
+                serviceSelect.addEventListener('change', function () {
+                    const key = this.value;
+                    const amount = priceMap[key] || '';
+                    if (amount) {
+                        cashAppLink.textContent = `Pay $${amount} with Cash App`;
+                        cashAppLinkConfirm.textContent = `Pay $${amount} with Cash App`;
+
+                        // Optionally add amount to Cash App URL (example pattern).
+                        // Uncomment this if you want the link to include the amount in the URL format:
+                        // cashAppLink.href = `https://cash.app/$josephaduk/${amount}`;
+                        // cashAppLinkConfirm.href = `https://cash.app/$josephaduk/${amount}`;
+
+                        // By default, update href to main username (keeps link safe if you don't want amount in URL)
+                        cashAppLink.href = `https://cash.app/$josephaduk`;
+                        cashAppLinkConfirm.href = `https://cash.app/$josephaduk`;
+                    } else {
+                        cashAppLink.textContent = 'Pay with Cash App';
+                        cashAppLinkConfirm.textContent = 'Pay with Cash App';
+                        cashAppLink.href = `https://cash.app/$josephaduk`;
+                        cashAppLinkConfirm.href = `https://cash.app/$josephaduk`;
+                    }
+                });
+            }
+
+            // Form submit (demo mode)
+            if (appointmentForm) {
+                appointmentForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    // Basic validation: ensure required fields are filled (HTML required already does a lot)
+                    if (!appointmentForm.checkValidity()) {
+                        appointmentForm.reportValidity();
+                        return;
+                    }
+
+                    // Hide form and show confirmation (demo behavior)
+                    bookingFormWrap.style.display = 'none';
+                    confirmation.style.display = 'block';
+                    confirmation.setAttribute('aria-hidden', 'false');
+
+                    // Scroll to confirmation
+                    confirmation.scrollIntoView({ behavior: 'smooth' });
+
+                    // Optionally: store the appointment locally (demo)
+                    try {
+                        const formData = new FormData(appointmentForm);
+                        const dataObj = {};
+                        formData.forEach((v, k) => dataObj[k] = v);
+                        // Save to localStorage so you can view it later in browser devtools (demo only)
+                        const existing = JSON.parse(localStorage.getItem('jakAppointments') || '[]');
+                        existing.push({ ...dataObj, createdAt: new Date().toISOString() });
+                        localStorage.setItem('jakAppointments', JSON.stringify(existing));
+                    } catch (err) {
+                        // ignore storage errors
+                    }
+                });
+            }
+
+            // Return to home / reset form
+            if (returnHomeBtn) {
+                returnHomeBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    // Reset and show form again
+                    appointmentForm.reset();
+                    bookingFormWrap.style.display = '';
+                    confirmation.style.display = 'none';
+                    confirmation.setAttribute('aria-hidden', 'true');
+                    // scroll to top of booking form
+                    bookingFormWrap.scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+
+            // --- Image slider ---
+            const slides = Array.from(document.querySelectorAll('.slide'));
+            const indicators = Array.from(document.querySelectorAll('.indicator'));
             let currentSlide = 0;
-            const slideInterval = 10000; // 10 seconds
-            
+            const slideIntervalMs = 10000;
+            let slideTimer = null;
+
             function showSlide(index) {
-                // Remove active class from all slides and indicators
-                slides.forEach(slide => slide.classList.remove('active'));
-                indicators.forEach(indicator => indicator.classList.remove('active'));
-                
-                // Add active class to current slide and indicator
-                slides[index].classList.add('active');
-                indicators[index].classList.add('active');
-                
+                slides.forEach((s, i) => s.classList.toggle('active', i === index));
+                indicators.forEach((ind, i) => ind.classList.toggle('active', i === index));
                 currentSlide = index;
             }
-            
+
             function nextSlide() {
-                let nextIndex = (currentSlide + 1) % slides.length;
+                const nextIndex = (currentSlide + 1) % slides.length;
                 showSlide(nextIndex);
             }
-            
-            // Set up automatic slide rotation
-            let slideTimer = setInterval(nextSlide, slideInterval);
-            
-            // Add click events to indicators
-            indicators.forEach(indicator => {
-                indicator.addEventListener('click', function() {
-                    const slideIndex = parseInt(this.getAttribute('data-index'));
-                    showSlide(slideIndex);
-                    
-                    // Reset the timer when manually changing slides
-                    clearInterval(slideTimer);
-                    slideTimer = setInterval(nextSlide, slideInterval);
+
+            // Start automatic rotation
+            if (slides.length > 0) {
+                slideTimer = setInterval(nextSlide, slideIntervalMs);
+            }
+
+            // Indicator click handlers
+            indicators.forEach(ind => {
+                ind.addEventListener('click', function () {
+                    const idx = parseInt(this.getAttribute('data-index'), 10);
+                    if (!Number.isNaN(idx)) {
+                        showSlide(idx);
+                        clearInterval(slideTimer);
+                        slideTimer = setInterval(nextSlide, slideIntervalMs);
+                    }
+                });
+                // keyboard accessibility
+                ind.addEventListener('keydown', function (ev) {
+                    if (ev.key === 'Enter' || ev.key === ' ') {
+                        ev.preventDefault();
+                        this.click();
+                    }
                 });
             });
-            
-            // Pause slider on hover (optional)
-            const heroSection = document.querySelector('.hero');
-            heroSection.addEventListener('mouseenter', function() {
-                clearInterval(slideTimer);
+
+            // Pause on hover
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.addEventListener('mouseenter', () => clearInterval(slideTimer));
+                hero.addEventListener('mouseleave', () => slideTimer = setInterval(nextSlide, slideIntervalMs));
+            }
+
+            // Small safety: if user navigates away and returns, reset interval
+            window.addEventListener('visibilitychange', () => {
+                if (document.hidden) clearInterval(slideTimer);
+                else slideTimer = setInterval(nextSlide, slideIntervalMs);
             });
-            
-            heroSection.addEventListener('mouseleave', function() {
-                slideTimer = setInterval(nextSlide, slideInterval);
+
+            // Accessibility: if someone uses the Book This Service links, pre-select the service when they arrive on the form
+            document.querySelectorAll('.service-card .btn[href="#booking"]').forEach((btn, idx) => {
+                btn.addEventListener('click', () => {
+                    // Map card index to service choice
+                    // 0 -> men-haircut (Classic)
+                    // 1 -> women-haircut (Standard)
+                    // 2 -> beard-trim (Executive)
+                    const mapping = ['men-haircut', 'women-haircut', 'beard-trim'];
+                    const val = mapping[idx] || '';
+                    if (val) {
+                        setTimeout(() => { // small delay so the page scrolls
+                            const select = document.getElementById('service');
+                            if (select) { select.value = val; select.dispatchEvent(new Event('change')); }
+                        }, 300);
+                    }
+                });
             });
-        });
+
+        })();
     </script>
 </body>
 </html>
+
