@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>JAK THE BARBER | Book Your Appointment</title>
     <style>
         :root{
@@ -15,63 +15,39 @@
         }
 
         *{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
-
-        body{
-            background:#f5f5f5;
-            color:var(--dark);
-            line-height:1.6;
-            -webkit-font-smoothing:antialiased;
-            -moz-osx-font-smoothing:grayscale;
-            scroll-behavior:smooth;
-        }
-
-        header{
-            background:#fff;
-            box-shadow:0 2px 10px rgba(0,0,0,0.08);
-            position:sticky;top:0;z-index:200;
-        }
-
-        .container{width:90%;max-width:1200px;margin:0 auto;padding:0 15px;}
-
-        .navbar{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:12px;}
-        .logo{font-size:1.8rem;font-weight:700;color:var(--primary);letter-spacing:0.5px;}
+        body{background:#f5f5f5;color:var(--dark);line-height:1.6;-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+        .container{width:90%;max-width:1200px;margin:0 auto;padding:0 15px}
+        header{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,0.08);position:sticky;top:0;z-index:200}
+        .navbar{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:12px}
+        .logo{font-size:1.8rem;font-weight:700;color:var(--primary);letter-spacing:0.5px}
         .menu-toggle{display:none;font-size:1.6rem;background:none;border:none;cursor:pointer}
-
-        .nav-links{display:flex;list-style:none;gap:28px;align-items:center;}
+        .nav-links{display:flex;list-style:none;gap:28px;align-items:center}
         .nav-links a{text-decoration:none;color:var(--dark);font-weight:500;transition:color .18s}
         .nav-links a:hover{color:var(--primary)}
-
-        .hero{position:relative;height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden;}
-        .hero-slides{position:absolute;inset:0;width:100%;height:100%;}
-        .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease-in-out;}
+        .hero{position:relative;height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden}
+        .hero-slides{position:absolute;inset:0;width:100%;height:100%}
+        .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease-in-out}
         .slide.active{opacity:1}
         .slide-overlay{position:absolute;inset:0;background:rgba(0,0,0,.45)}
         .hero-content{position:relative;z-index:2;max-width:800px;padding:0 20px;opacity:0;transform:translateY(8px);animation:fadeUp .7s ease forwards .15s}
         @keyframes fadeUp{to{opacity:1;transform:none}}
-
         .hero h1{font-size:2.6rem;margin-bottom:16px;text-shadow:2px 2px 6px rgba(0,0,0,.45)}
         .hero p{font-size:1.15rem;margin-bottom:22px;text-shadow:1px 1px 4px rgba(0,0,0,.4)}
-
         .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 26px;border-radius:999px;text-decoration:none;font-weight:600;border:none;cursor:pointer;transition:transform .18s,box-shadow .18s,background .18s}
         .btn:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.18);background:#ff6b4a}
-
         section{padding:80px 0}
         .section-title{text-align:center;margin-bottom:40px}
         .section-title h2{font-size:2rem;color:var(--primary);margin-bottom:10px}
         .section-title p{color:#2b8c3a;max-width:680px;margin:0 auto}
-
         .services{background:#fff}
-        .services-grid{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+        .services-grid{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
         .service-card{background:var(--light);border-radius:12px;padding:26px;text-align:center;box-shadow:0 8px 20px rgba(0,0,0,0.04);transition:transform .22s}
         .service-card:hover{transform:translateY(-8px)}
         .service-price{font-weight:700;margin:8px 0;color:var(--dark)}
         .service-description{color:#4d4d4d;margin-bottom:14px}
-
-        /* Coming soon card styling (applies to all sizes) */
         .service-card.coming-soon{position:relative;opacity:.8;filter:grayscale(.25)}
         .service-card.coming-soon::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,0.06),rgba(0,0,0,0.12));border-radius:12px;pointer-events:none}
         .coming-soon-badge{position:absolute;top:16%;right:-18px;transform:rotate(-12deg);background:linear-gradient(45deg,#ff6b6b,#ee5a24);color:#fff;padding:10px 20px;border-radius:6px;font-weight:700;letter-spacing:1px;box-shadow:0 8px 18px rgba(0,0,0,.18)}
-
         .booking{background:var(--light)}
         .booking-form{background:#fff;border-radius:10px;padding:40px;box-shadow:0 8px 30px rgba(0,0,0,.08);max-width:880px;margin:0 auto}
         .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -79,13 +55,10 @@
         label{display:block;margin-bottom:8px;font-weight:600}
         input,select,textarea{width:100%;padding:12px 14px;border-radius:8px;border:1px solid #e0e0e0;font-size:1rem;transition:border-color .14s}
         input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 6px 18px rgba(74,111,165,.06)}
-
         .payment-info{background:#f0f8ff;border-left:4px solid var(--primary);padding:18px;border-radius:8px;margin-top:20px}
         .payment-info h3{color:var(--primary);margin-bottom:8px}
         .payment-info p{color:#333;margin-bottom:8px}
-
         .cashapp-link{display:inline-block;background:#00D632;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:700}
-
         footer{background:var(--dark);color:#fff;padding:48px 0 28px}
         .footer-content{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-bottom:20px}
         .footer-column h3{margin-bottom:12px;color:var(--light)}
@@ -94,22 +67,15 @@
         .footer-links a{color:#cfd8dc;text-decoration:none}
         .footer-links a:hover{color:#fff}
         .copyright{border-top:1px solid #495057;padding-top:18px;text-align:center;color:#adb5bd;font-size:.92rem}
-
         .confirmation{display:none;background:#fff;border-radius:10px;padding:36px;box-shadow:0 8px 30px rgba(0,0,0,.08);max-width:680px;margin:0 auto;text-align:center}
         .confirmation-icon{font-size:3.6rem;color:var(--success);margin-bottom:10px}
         .indicator-container{position:absolute;bottom:18px;left:0;right:0;display:flex;justify-content:center;gap:8px;z-index:50}
         .indicator{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:background .12s}
         .indicator.active{background:#fff}
-
-        /* small utilities */
         .muted{color:#6c757d}
         .text-center{text-align:center}
 
-        @media (max-width:992px){
-            .hero h1{font-size:2.2rem}
-            .hero p{font-size:1rem}
-        }
-
+        @media (max-width:992px){.hero h1{font-size:2.2rem}.hero p{font-size:1rem}}
         @media (max-width:768px){
             .menu-toggle{display:block}
             .nav-links{display:none;flex-direction:column;background:#fff;width:100%;padding:12px;border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,.06)}
@@ -183,7 +149,6 @@
                 </div>
 
                 <div class="services-grid" role="list">
-                    <!-- Basic Tier -->
                     <article class="service-card" role="listitem">
                         <div><span class="muted">Essential</span></div>
                         <div class="service-content">
@@ -194,7 +159,6 @@
                         </div>
                     </article>
 
-                    <!-- Standard Tier -->
                     <article class="service-card" role="listitem">
                         <div><span class="muted">Standard</span></div>
                         <div class="service-content">
@@ -205,7 +169,6 @@
                         </div>
                     </article>
 
-                    <!-- Premium Tier -->
                     <article class="service-card" role="listitem">
                         <div><span class="muted">Premium</span></div>
                         <div class="service-content">
@@ -216,7 +179,6 @@
                         </div>
                     </article>
 
-                    <!-- Luxury Tier (coming soon) -->
                     <article class="service-card coming-soon" role="listitem" aria-hidden="false">
                         <div class="coming-soon-badge">Coming Soon</div>
                         <div><span class="muted">Luxury</span></div>
@@ -231,6 +193,7 @@
             </div>
         </section>
 
+        <!-- BOOKING SECTION (Formspree integrated) -->
         <section class="booking" id="booking" aria-labelledby="bookingTitle">
             <div class="container">
                 <div class="section-title">
@@ -238,8 +201,17 @@
                     <p>Fill out the form below to schedule your haircut appointment.</p>
                 </div>
 
-                <div class="booking-form" id="bookingForm">
-                    <form id="appointmentForm" novalidate>
+                <div class="booking-form" id="bookingFormWrap">
+                   
+                    <form id="appointmentForm"
+                          class="booking-form-inner"
+                          method="POST"
+                          action="https://formspree.io/f/myznokey"
+                          aria-label="Appointment booking form"
+                          >
+                        <!-- Include a hidden subject or identifier for Formspree if you want -->
+                        <input type="hidden" name="_subject" value="New booking from JAK THE BARBER website">
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="firstName">First name</label>
@@ -267,9 +239,9 @@
                                 <label for="service">Select service</label>
                                 <select id="service" name="service" required>
                                     <option value="">Choose a service</option>
-                                    <option value="men-haircut">Classic Lineup / Beard Trim Only - $15</option>
-                                    <option value="women-haircut">Standard - $20</option>
-                                    <option value="beard-trim">Executive Grooming - $30</option>
+                                    <option value="Classic Lineup / Beard Trim - $15">Classic Lineup / Beard Trim - $15</option>
+                                    <option value="Signature Style - $20">Signature Style - $20</option>
+                                    <option value="Executive Grooming - $30">Executive Grooming - $30</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -283,14 +255,14 @@
                                 <label for="time">Preferred time</label>
                                 <select id="time" name="time" required>
                                     <option value="">Select a time</option>
-                                    <option>9:00 AM</option>
-                                    <option>10:00 AM</option>
-                                    <option>11:00 AM</option>
-                                    <option>12:00 PM</option>
-                                    <option>1:00 PM</option>
-                                    <option>2:00 PM</option>
-                                    <option>3:00 PM</option>
-                                    <option>4:00 PM</option>
+                                    <option value="9:00 AM">9:00 AM</option>
+                                    <option value="10:00 AM">10:00 AM</option>
+                                    <option value="11:00 AM">11:00 AM</option>
+                                    <option value="12:00 PM">12:00 PM</option>
+                                    <option value="1:00 PM">1:00 PM</option>
+                                    <option value="2:00 PM">2:00 PM</option>
+                                    <option value="3:00 PM">3:00 PM</option>
+                                    <option value="4:00 PM">4:00 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -302,11 +274,7 @@
 
                         <div class="payment-info" aria-live="polite">
                             <h3>Payment instructions</h3>
-                            <p>After booking, please complete payment through Cash App using the button below. Your appointment will be confirmed after payment is received. Other bank transfers are also accepted in person at your appointment time.</p>
-
-                            <!-- Primary payment link shown before and after booking.
-                                 Note: the href updated dynamically to include amount (example: https://cash.app/$josephaduk/15).
-                                 If you prefer not to include the amount in the URL, the code still updates button text only. -->
+                            <p>After booking, please complete payment through Cash App using the button below. Your appointment will be confirmed after payment is received. Other bank transfers are accepted in person at your appointment time.</p>
                             <a id="cashAppLink" class="cashapp-link" href="https://cash.app/$josephaduk" target="_blank" rel="noopener">Pay with Cash App</a>
                         </div>
 
@@ -314,7 +282,7 @@
                     </form>
                 </div>
 
-                <div class="confirmation" id="confirmation" aria-hidden="true">
+                <div class="confirmation" id="confirmationBox" aria-hidden="true">
                     <div class="confirmation-icon">✓</div>
                     <h2>Appointment request submitted!</h2>
                     <p>Thank you — we've received your appointment request and will contact you shortly to confirm.</p>
@@ -326,6 +294,7 @@
                 </div>
             </div>
         </section>
+
     </main>
 
     <footer id="contact">
@@ -364,11 +333,11 @@
 
     <script>
         (function () {
-            // Basic DOM references
+            // DOM refs
             const dateEl = document.getElementById('date');
             const appointmentForm = document.getElementById('appointmentForm');
-            const bookingFormWrap = document.getElementById('bookingForm');
-            const confirmation = document.getElementById('confirmation');
+            const bookingFormWrap = document.getElementById('bookingFormWrap');
+            const confirmationBox = document.getElementById('confirmationBox');
             const serviceSelect = document.getElementById('service');
             const cashAppLink = document.getElementById('cashAppLink');
             const cashAppLinkConfirm = document.getElementById('cashAppLinkConfirm');
@@ -376,13 +345,13 @@
             const menuToggle = document.getElementById('menuToggle');
             const mainNav = document.getElementById('mainNav');
 
-            // Set minimum date to today (if date input exists)
+            // Set minimum date
             if (dateEl) {
                 const today = new Date().toISOString().split('T')[0];
                 dateEl.min = today;
             }
 
-            // Mobile menu toggle
+            // Mobile menu
             if (menuToggle && mainNav) {
                 menuToggle.addEventListener('click', function () {
                     const isShown = mainNav.classList.toggle('show');
@@ -390,28 +359,22 @@
                 });
             }
 
-            // Map select values to displayed prices (match what's shown in the UI)
+            // Price map (keeps button text consistent)
             const priceMap = {
-                'men-haircut': '15',
-                'women-haircut': '20',
-                'beard-trim': '30'
+                'Classic Lineup / Beard Trim - $15': '15',
+                'Signature Style - $20': '20',
+                'Executive Grooming - $30': '30'
             };
 
-            // Update Cash App button text and href when service changes
+            // Update Cash App button text/hint when service is selected
             if (serviceSelect) {
                 serviceSelect.addEventListener('change', function () {
-                    const key = this.value;
-                    const amount = priceMap[key] || '';
+                    const selected = this.value;
+                    const amount = priceMap[selected] || '';
                     if (amount) {
                         cashAppLink.textContent = `Pay $${amount} with Cash App`;
                         cashAppLinkConfirm.textContent = `Pay $${amount} with Cash App`;
-
-                        // Optionally add amount to Cash App URL (example pattern).
-                        // Uncomment this if you want the link to include the amount in the URL format:
-                        // cashAppLink.href = `https://cash.app/$josephaduk/${amount}`;
-                        // cashAppLinkConfirm.href = `https://cash.app/$josephaduk/${amount}`;
-
-                        // By default, update href to main username (keeps link safe if you don't want amount in URL)
+                        // Keep href as main username; uncomment to include amount in URL if preferred
                         cashAppLink.href = `https://cash.app/$josephaduk`;
                         cashAppLinkConfirm.href = `https://cash.app/$josephaduk`;
                     } else {
@@ -423,37 +386,64 @@
                 });
             }
 
-            // Form submit (demo mode)
+            // Form submission: POST to Formspree (if you replace the action URL), otherwise still works as demo + saves locally
             if (appointmentForm) {
-                appointmentForm.addEventListener('submit', function (e) {
+                appointmentForm.addEventListener('submit', async function (e) {
                     e.preventDefault();
 
-                    // Basic validation: ensure required fields are filled (HTML required already does a lot)
                     if (!appointmentForm.checkValidity()) {
                         appointmentForm.reportValidity();
                         return;
                     }
 
-                    // Hide form and show confirmation (demo behavior)
+                    // Build form data
+                    const formData = new FormData(appointmentForm);
+
+                    // Try to POST to Formspree endpoint (action attribute)
+                    const actionURL = appointmentForm.getAttribute('action') || '';
+                    let sentToRemote = false;
+
+                    if (actionURL && actionURL.includes('formspree.io') && !actionURL.includes('YOUR_FORM_ID')) {
+                        try {
+                            const response = await fetch(actionURL, {
+                                method: 'POST',
+                                body: formData,
+                                headers: { Accept: 'application/json' }
+                            });
+
+                            if (response.ok) {
+                                sentToRemote = true;
+                            } else {
+                                // remote returned error — we'll fall back to demo behaviour below
+                                sentToRemote = false;
+                                console.warn('Formspree response not OK', response.status);
+                            }
+                        } catch (err) {
+                            console.warn('Error sending to Formspree:', err);
+                            sentToRemote = false;
+                        }
+                    }
+
+                    // Show confirmation UI regardless (so user sees immediate feedback).
+                    // If you want to only show confirmation after remote success, change this logic accordingly.
                     bookingFormWrap.style.display = 'none';
-                    confirmation.style.display = 'block';
-                    confirmation.setAttribute('aria-hidden', 'false');
+                    confirmationBox.style.display = 'block';
+                    confirmationBox.setAttribute('aria-hidden', 'false');
+                    confirmationBox.scrollIntoView({ behavior: 'smooth' });
 
-                    // Scroll to confirmation
-                    confirmation.scrollIntoView({ behavior: 'smooth' });
-
-                    // Optionally: store the appointment locally (demo)
+                    // Save locally for demo and to keep a record (localStorage)
                     try {
-                        const formData = new FormData(appointmentForm);
                         const dataObj = {};
                         formData.forEach((v, k) => dataObj[k] = v);
-                        // Save to localStorage so you can view it later in browser devtools (demo only)
                         const existing = JSON.parse(localStorage.getItem('jakAppointments') || '[]');
-                        existing.push({ ...dataObj, createdAt: new Date().toISOString() });
+                        existing.push({ ...dataObj, createdAt: new Date().toISOString(), sentToRemote });
                         localStorage.setItem('jakAppointments', JSON.stringify(existing));
                     } catch (err) {
-                        // ignore storage errors
+                        // ignore localStorage errors
                     }
+
+                    // If the form was sent to Formspree AND you want to clear it:
+                    appointmentForm.reset();
                 });
             }
 
@@ -461,17 +451,36 @@
             if (returnHomeBtn) {
                 returnHomeBtn.addEventListener('click', function (e) {
                     e.preventDefault();
-                    // Reset and show form again
                     appointmentForm.reset();
                     bookingFormWrap.style.display = '';
-                    confirmation.style.display = 'none';
-                    confirmation.setAttribute('aria-hidden', 'true');
-                    // scroll to top of booking form
+                    confirmationBox.style.display = 'none';
+                    confirmationBox.setAttribute('aria-hidden', 'true');
                     bookingFormWrap.scrollIntoView({ behavior: 'smooth' });
                 });
             }
 
-            // --- Image slider ---
+            // Small UX: when clicking service card "Book This Service", pre-select that service in the form
+            document.querySelectorAll('.service-card .btn[href="#booking"]').forEach((btn, idx) => {
+                btn.addEventListener('click', () => {
+                    const mapping = [
+                        'Classic Lineup / Beard Trim - $15',
+                        'Signature Style - $20',
+                        'Executive Grooming - $30'
+                    ];
+                    const val = mapping[idx] || '';
+                    if (val) {
+                        setTimeout(() => {
+                            const select = document.getElementById('service');
+                            if (select) {
+                                select.value = val;
+                                select.dispatchEvent(new Event('change'));
+                            }
+                        }, 300);
+                    }
+                });
+            });
+
+            // Image slider functionality
             const slides = Array.from(document.querySelectorAll('.slide'));
             const indicators = Array.from(document.querySelectorAll('.indicator'));
             let currentSlide = 0;
@@ -489,12 +498,10 @@
                 showSlide(nextIndex);
             }
 
-            // Start automatic rotation
             if (slides.length > 0) {
                 slideTimer = setInterval(nextSlide, slideIntervalMs);
             }
 
-            // Indicator click handlers
             indicators.forEach(ind => {
                 ind.addEventListener('click', function () {
                     const idx = parseInt(this.getAttribute('data-index'), 10);
@@ -504,7 +511,6 @@
                         slideTimer = setInterval(nextSlide, slideIntervalMs);
                     }
                 });
-                // keyboard accessibility
                 ind.addEventListener('keydown', function (ev) {
                     if (ev.key === 'Enter' || ev.key === ' ') {
                         ev.preventDefault();
@@ -513,37 +519,17 @@
                 });
             });
 
-            // Pause on hover
             const hero = document.querySelector('.hero');
             if (hero) {
                 hero.addEventListener('mouseenter', () => clearInterval(slideTimer));
                 hero.addEventListener('mouseleave', () => slideTimer = setInterval(nextSlide, slideIntervalMs));
             }
 
-            // Small safety: if user navigates away and returns, reset interval
-            window.addEventListener('visibilitychange', () => {
+            // Visibility handling
+            document.addEventListener('visibilitychange', () => {
                 if (document.hidden) clearInterval(slideTimer);
                 else slideTimer = setInterval(nextSlide, slideIntervalMs);
             });
-
-            // Accessibility: if someone uses the Book This Service links, pre-select the service when they arrive on the form
-            document.querySelectorAll('.service-card .btn[href="#booking"]').forEach((btn, idx) => {
-                btn.addEventListener('click', () => {
-                    // Map card index to service choice
-                    // 0 -> men-haircut (Classic)
-                    // 1 -> women-haircut (Standard)
-                    // 2 -> beard-trim (Executive)
-                    const mapping = ['men-haircut', 'women-haircut', 'beard-trim'];
-                    const val = mapping[idx] || '';
-                    if (val) {
-                        setTimeout(() => { // small delay so the page scrolls
-                            const select = document.getElementById('service');
-                            if (select) { select.value = val; select.dispatchEvent(new Event('change')); }
-                        }, 300);
-                    }
-                });
-            });
-
         })();
     </script>
 </body>
