@@ -58,7 +58,7 @@ Update the Cash App payment link
 Modify service offerings and pricing in the HTML/JS files
 
 ## 📷 Screenshots
-![Screenshot of Booking Page](BBB.jpeg)
+![Screenshot of Booking Page](https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=60)
 
 ## 🌱 Future Improvements
 Backend integration for booking and payment tracking
